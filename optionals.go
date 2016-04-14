@@ -4,7 +4,7 @@ import (
 	"net/url"
 	"strconv"
 
-	"github.com/eternnoir/gotelebot/types"
+	"github.com/likoo/gotelebot/types"
 )
 
 type Optional interface {
@@ -17,6 +17,7 @@ type SendMessageOptional struct {
 	ParseMode *string
 	// Disables link previews for links in this message
 	DisableWebPagePreview *bool
+	DisableNotification   *bool
 	ReplyToMessageId      *int
 	ReplyMarkup           *types.ReplyMarkup
 }
@@ -27,6 +28,9 @@ func (opt *SendMessageOptional) AppendPayload(payload *url.Values) {
 	}
 	if opt.DisableWebPagePreview != nil {
 		payload.Add("disable_web_page_preview", strconv.FormatBool(*opt.DisableWebPagePreview))
+	}
+	if opt.DisableNotification != nil {
+		payload.Add("disable_notification", strconv.FormatBool(*opt.DisableNotification))
 	}
 	if opt.ReplyToMessageId != nil {
 		payload.Add("reply_to_message_id", strconv.Itoa(*opt.ReplyToMessageId))

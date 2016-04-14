@@ -14,7 +14,7 @@ import (
 	"path/filepath"
 	"reflect"
 
-	"github.com/eternnoir/gotelebot/types"
+	"github.com/likoo/gotelebot/types"
 )
 
 func sendGetRequest(method string, token string, params url.Values) ([]byte, error) {

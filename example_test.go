@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"io/ioutil"
 
-	"github.com/eternnoir/gotelebot"
+	"github.com/likoo/gotelebot"
 )
 
 func Example() {
